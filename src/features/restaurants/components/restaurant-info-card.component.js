@@ -3,14 +3,24 @@ import { Text, StyleSheet } from "react-native";
 import { Card } from "react-native-paper";
 import styled from "styled-components/native";
 
+const RestaurantCard = styled(Card)`
+  background-color: white;
+`;
+
+const RestaurantCardCover = styled(Card.Cover)`
+  padding: 20px;
+  background-color: ${(props) => props.theme.colors.ui.primary};
+`;
+
 const Title = styled.Text`
+  font-family: ${(props) => props.theme.fonts.body};
   padding: 16px;
-  color: red;
+  color: ${(props) => props.theme.colors.ui.primary};
 `;
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
-    name = "Rest 1mRest 1Rest 1Rest 1Rest 1Rest 1Rest 1Rest 1Rest 1Rest 1 Rest 1Rest 1Rest 1Rest 1Rest 1Rest 1",
+    name = "Some Restaurant",
     icon,
     photos = [
       "https://cdn.britannica.com/36/123536-050-95CB0C6E/Variety-fruits-vegetables.jpg",
@@ -22,14 +32,14 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
 
   return (
-    <Card elevation={5} style={styles.card}>
-      <Card.Cover
+    <RestaurantCard elevation={5} style={styles.card}>
+      <RestaurantCardCover
         key={name}
         style={styles.cover}
         source={{ uri: photos[0] }}
-      ></Card.Cover>
+      ></RestaurantCardCover>
       <Title>{name}</Title>
-    </Card>
+    </RestaurantCard>
   );
 };
 
