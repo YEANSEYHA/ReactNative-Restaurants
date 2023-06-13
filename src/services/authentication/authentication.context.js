@@ -2,9 +2,9 @@ import React, { useState, createContext } from "react";
 import firebase from "firebase/compat/app";
 import { loginRequest } from "./authentication.service";
 
-export const AutheticationContext = createContext();
+export const AuthenticationContext = createContext();
 
-export const AutheticationContextProvider = ({ children }) => {
+export const AuthenticationContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
@@ -23,7 +23,7 @@ export const AutheticationContextProvider = ({ children }) => {
   };
 
   return (
-    <AutheticationContext.Provider
+    <AuthenticationContext.Provider
       value={{
         user,
         isLoading,
@@ -32,6 +32,6 @@ export const AutheticationContextProvider = ({ children }) => {
       }}
     >
       {children}
-    </AutheticationContext.Provider>
+    </AuthenticationContext.Provider>
   );
 };

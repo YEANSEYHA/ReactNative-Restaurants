@@ -15,7 +15,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import { useEffect, useState } from "react";
-import { AutheticationContextProvider } from "./src/services/authentication/authentication.context";
+import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -63,7 +63,7 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <AutheticationContextProvider>
+        <AuthenticationContextProvider>
           <FavouritesContextProvider>
             <LocationContextProvider>
               <RestaurantsContextProvider>
@@ -71,7 +71,7 @@ export default function App() {
               </RestaurantsContextProvider>
             </LocationContextProvider>
           </FavouritesContextProvider>
-        </AutheticationContextProvider>
+        </AuthenticationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
     </>
