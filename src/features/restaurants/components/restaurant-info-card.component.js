@@ -6,6 +6,7 @@ import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/start";
 import open from "../../../../assets/open";
 import { Spacer } from "../../../components/spacer/spacer.component";
+import { Favourite } from "../../../components/favourites/favourite.component";
 
 import { Text } from "../../../components/typography/text.component";
 
@@ -64,9 +65,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard elevation={5}>
+      <Favourite restaurant={restaurant} />
       <RestaurantCardCover
         key={name}
-        source={{ uri: photos[0] }}
+        source={{
+          uri: "https://www.eatingwell.com/thmb/m5xUzIOmhWSoXZnY-oZcO9SdArQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/article_291139_the-top-10-healthiest-foods-for-kids_-02-4b745e57928c4786a61b47d8ba920058.jpg",
+        }}
       ></RestaurantCardCover>
       <Info>
         <Text variant="label">{name}</Text>
